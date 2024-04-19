@@ -191,8 +191,15 @@ def main():
             "Upload an image...", type=["jpg", "jpeg", "png"]
         )
         if st.button("Take Photo"):
-            # Use the camera to capture an image
-            camera_image = st.camera()
+            camera_image = st.camera_input("Take a picture")
+            if camera_image:
+                st.image(camera_image)
+                if st.button("Classify"):
+                    # Preprocess the uploaded image and predict the class
+                    prediction = predict_image_class(
+                        model, uploaded_image, class_indices
+                    )
+                    st.success(f"Prediction: {str(prediction)}")
     
         if camera_image is not None:
             # Process the captured image and predict the class
