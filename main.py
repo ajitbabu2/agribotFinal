@@ -191,8 +191,8 @@ def main():
             "Upload an image...", type=["jpg", "jpeg", "png"]
         )
         if st.button("Take Photo"):
-        # Use the camera to capture an image
-        camera_image = st.camera()
+            # Use the camera to capture an image
+            camera_image = st.camera()
     
         if camera_image is not None:
             # Process the captured image and predict the class
