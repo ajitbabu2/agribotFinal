@@ -131,15 +131,6 @@ def predict_image_class(model, image_path, class_indices):
     predicted_class_name = class_indices[str(predicted_class_index)]
     return predicted_class_name
 
-# Function to process the uploaded image and predict the class
-def process_image_and_predict(image, model, class_indices):
-    resized_img = image.resize((150, 150))
-    st.image(resized_img)
-
-    if st.button("Classify"):
-        # Preprocess the uploaded image and predict the class
-        prediction = predict_image_class(model, image, class_indices)
-        st.success(f"Prediction: {str(prediction)}")
 
 def main():
 
@@ -199,12 +190,7 @@ def main():
         uploaded_image = st.file_uploader(
             "Upload an image...", type=["jpg", "jpeg", "png"]
         )
-        if st.button("Take Photo"):
-            camera_image = st.camera_input("Take a picture")
-            if camera_image is not None:
-                # Process the captured image and predict the class
-                process_image_and_predict(camera_image, model, class_indices)
-
+       
         if uploaded_image is not None:
             image = Image.open(uploaded_image)
             col1, col2 = st.columns(2)
