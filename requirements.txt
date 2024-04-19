@@ -1,0 +1,11 @@
+streamlit
+google-generativeai
+python-dotenv
+langchain
+PyPDF2
+chromadb
+faiss-cpu
+langchain_google_genai
+SpeechRecognition==3.10.3
+googletrans==3.1.0a0
+tensorflow==2.15.0
