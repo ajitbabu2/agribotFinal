@@ -89,7 +89,7 @@ def user_input(question, language):
     # new_db = FAISS.load_local(
     #     "faiss_index", embeddings, allow_dangerous_deserialization=True
     # )
-    new_db = FAISS.load_local("faiss_index", embeddings)
+    new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(question)
 
     chain = get_conversational_chain()
