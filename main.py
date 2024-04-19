@@ -190,6 +190,13 @@ def main():
         uploaded_image = st.file_uploader(
             "Upload an image...", type=["jpg", "jpeg", "png"]
         )
+        if st.button("Take Photo"):
+        # Use the camera to capture an image
+        camera_image = st.camera()
+    
+        if camera_image is not None:
+            # Process the captured image and predict the class
+            process_image_and_predict(camera_image, model, class_indices)
 
         if uploaded_image is not None:
             image = Image.open(uploaded_image)
